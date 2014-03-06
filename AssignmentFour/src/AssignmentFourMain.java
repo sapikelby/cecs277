@@ -42,6 +42,7 @@ public class AssignmentFourMain
 				copyNumbers.add(n);
 			}
 			
+			// factory is a static method
 			ArrayList<MySort> sorters = new ArrayList<MySort>();
 			sorters.add(MySort.createSortFactory(MySort.Type.BUBBLE_SORT, numbers));
 			sorters.add(MySort.createSortFactory(MySort.Type.HEAP_SORT, numbers));

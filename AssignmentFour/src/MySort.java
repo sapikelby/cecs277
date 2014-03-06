@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// abstract cannot instantiate
 public abstract class MySort 
 {
 	public enum Type { BUBBLE_SORT, HEAP_SORT, QUICK_SORT, QUICK_SORT_RANDOMIZED, MERGE_SORT };
@@ -17,7 +18,8 @@ public abstract class MySort
 			case HEAP_SORT:
 				sorter = new HeapSort(numbers);
 				break;
-				
+			
+				// need a try/catch
 			case QUICK_SORT:
 				sorter = new QuickSort(numbers);
 				break;
