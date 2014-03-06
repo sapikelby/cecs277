@@ -5,7 +5,7 @@ public class QuickSortRandomized extends MySort {
 	
 	public QuickSortRandomized(ArrayList<Integer> numbers)
 	{
-		super();
+		//super();
 		mNumbers = new ArrayList<Integer>(numbers.size());  
 		for(int i=0; i<numbers.size(); i++)
 		{

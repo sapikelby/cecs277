@@ -6,7 +6,7 @@ public class MergeSort extends MySort {
 
 	public MergeSort(ArrayList<Integer> numbers)
 	{
-		super();
+		//super();
 		mNumbers = new ArrayList<Integer>(numbers.size()); 
 		//System.out.println(mNumbers.size());
 		
