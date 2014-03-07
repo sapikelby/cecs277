@@ -39,56 +39,76 @@ public class MergeSort extends MySort {
 	public void Sort()
 	{
 		Date before = new Date();
-		mergeSort(mNumbers);
+		mNumbers = mergeSort(mNumbers);
 
 		Date after = new Date(); 
 		mElapsedTime = after.getTime() - before.getTime();
 	}
 	
-	public ArrayList<Integer> mergeSort(ArrayList<Integer> a) 
+	public ArrayList<Integer> mergeSort(ArrayList<Integer> unsortedList)
 	{
-		if (a.size() <= 1) 
+		if(unsortedList.size() <= 1)
 		{
-			return a;
+			return unsortedList;
 		}
-		ArrayList<Integer> firstHalf = new ArrayList<>();
-		ArrayList<Integer> secondHalf = new ArrayList<>();
-		
-		for (int i = 0; i < a.size() / 2; i++) {
-			firstHalf.add(a.get(i));
+		ArrayList<Integer> sortedList = new ArrayList<Integer>();
+
+		ArrayList<Integer> left = new ArrayList<Integer>();
+		ArrayList<Integer> right = new ArrayList<Integer>();
+		int middle = unsortedList.size()/2;
+		//Splits the array into unsortedList size lists of size one
+		for(int i = 0; i < unsortedList.size(); i++)
+		{
+			if(i < middle)
+			{
+				left.add(unsortedList.get(i));
+			}
+			else
+			{
+				right.add(unsortedList.get(i));
+			}
+			
 		}
-		for (int i = a.size() / 2; i < a.size(); i++) {
-			secondHalf.add(a.get(i));
-		}
-		
-		return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+		left = mergeSort(left); 
+		right = mergeSort(right);
+		//combines the lists
+		sortedList = merge(left, right);
+		return sortedList;
 	}
 
-	public ArrayList<Integer> merge(ArrayList<Integer> l1, ArrayList<Integer> l2) 
+	public ArrayList<Integer> merge(ArrayList<Integer> left, ArrayList<Integer> right)
 	{
-		if (l1.size() == 0) 
+		ArrayList<Integer> mergedList = new ArrayList<Integer>();
+		while(left.size() > 0 || right.size() > 0)
 		{
-			return l2;
+			if(left.size() > 0 && right.size() > 0)
+			{
+				if(left.get(0) < right.get(0))
+				{
+					mergedList.add(left.get(0));
+					left.remove(0);
+					
+				}
+				else
+				{
+					mergedList.add(right.get(0));
+					right.remove(0);
+				}
+				mNumComparisons++;
+			}
+			else if(left.size() > 0)
+			{
+				mergedList.add(left.get(0));
+				left.remove(0);
+			}
+			else if(right.size() > 0)
+			{
+				mergedList.add(right.get(0));
+				right.remove(0);
+			}
+			//mNumComparisons++;
 		}
-		if (l2.size() == 0) 
-		{
-			return l1;
-		}
-		
-		
-		ArrayList<Integer> result = new ArrayList<>();
-		int nextElement;
-		mNumComparisons++;
-		if (l1.get(0) > l2.get(0)) {
-			nextElement = l2.get(0);
-			l2.remove(0);
-		} else {
-			nextElement = l1.get(0);
-			l1.remove(0);
-		}
-		result.add(nextElement);
-		result.addAll(merge(l1, l2));
-		return result;
+		return mergedList;
 	}
 	
 }

@@ -45,9 +45,7 @@ public class HeapSort extends MySort{
 		int start = count/2 - 1;
 		while(start >= 0)
 		{
-			//mNumComparisons++;
 			siftDown(unsortedList, start, count - 1);
-			
 			start -= 1;
 		}
 	}
@@ -73,7 +71,6 @@ public class HeapSort extends MySort{
 			}
 			if(swap != root)
 			{
-				//mNumComparisons++;
 				swap(unsortedList, root, swap);
 				root = swap;
 			}

@@ -19,16 +19,17 @@ public class BubbleSort extends MySort {
 		return "Bubble Sort";
 	}
 
-	public void Sort() {
-		Date before = new Date();
-		
+	public void Sort() 
+	{
 		boolean swap = true;
 		int temp = 0; 
 		int j = 0; // used to decrement arrayList traversal
+		Date before = new Date();
+		
 		while (swap) {
 			swap = false;
 			j++;
-			for (int i = 0; i < (mNumbers.size() - 1) - j; i++) 
+			for (int i = 0; i < mNumbers.size() - j; i++) 
 			{
 				// swapping keys (numbers)
 				if (mNumbers.get(i) > mNumbers.get(i + 1)) 
@@ -42,8 +43,17 @@ public class BubbleSort extends MySort {
 				mNumComparisons++; // increment num of comparisons
 			}
 		}
-
+		
 		Date after = new Date();
+		//printList();
 		mElapsedTime = after.getTime() - before.getTime();
+	}
+	
+	public void printList()
+	{
+		for(int i=0; i < mNumbers.size(); i++)
+		{
+			System.out.println(mNumbers.get(i));
+		}
 	}
 }
