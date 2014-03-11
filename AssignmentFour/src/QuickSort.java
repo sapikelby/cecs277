@@ -6,7 +6,8 @@ public class QuickSort extends MySort
 
 	public QuickSort(ArrayList<Integer> numbers)
 	{
-		//super();
+		mElapsedTime = 0;
+		mNumComparisons = 0;
 		mNumbers = new ArrayList<Integer>(numbers.size());  
 		for(int i=0; i<numbers.size(); i++)
 		{
@@ -22,20 +23,26 @@ public class QuickSort extends MySort
 	public void Sort() 
 	{
 		Date before = new Date();
+		try
+		{
 		mNumbers = quickSort(mNumbers);
+		}
+		catch(StackOverflowError err)
+		{
+			System.out.println(askName() + " ran out stack space");
+		}
 		Date after = new Date(); 
 		mElapsedTime = after.getTime() - before.getTime();
 	}
 	
-	public ArrayList<Integer> quickSort(ArrayList<Integer> unsortedList) throws StackOverFlowException
+	public ArrayList<Integer> quickSort(ArrayList<Integer> unsortedList) 
 	{
 		
 		ArrayList<Integer> sortedList = new ArrayList<Integer>();
-		//Date before = new Date();
-		try
-		{
+		
 		if(unsortedList.size() <= 1)
 		{
+			//return unsortedList;
 			return unsortedList;
 		}
 		//picking pivot
@@ -63,16 +70,11 @@ public class QuickSort extends MySort
 				left.add(unsortedList.get(i));
 			}
 			mNumComparisons++;
-			return sortedList;
 		}
+		
 		//combine the lists
-		//sortedList = concatinate(quickSort(left), pivotData, quickSort(right));
-		}
-		catch(StackOverflowError e){
-			throw new StackOverFlowException(askName() + " ran out stack space");
-        }
-		//Date after = new Date();
-		//mElapsedTime = after.getTime() - before.getTime();
+		sortedList = concatinate(quickSort(left), pivotData, quickSort(right));
+	
 		return sortedList;
 	}
 

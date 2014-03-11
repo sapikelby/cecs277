@@ -17,7 +17,7 @@ public class QuickSortRandomized extends QuickSort {
 	public void Sort()
 	{
 		//mNumbers = quickSort(mNumbers);
-		quickSort(mNumbers);
+		mNumbers = quickSort(mNumbers);
 	}
 	
 	public int getPivotIndex(int left, int right)
