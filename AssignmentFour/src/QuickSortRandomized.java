@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-
+// heapsort and mergesort
+/**
+ *	Best case:
+ *	Worst case:
+ *	Avg. case:
+ */
 public class QuickSortRandomized extends QuickSort {
 	
 	public QuickSortRandomized(ArrayList<Integer> numbers)
@@ -13,20 +18,10 @@ public class QuickSortRandomized extends QuickSort {
 	{
 		return "Quick Sort (R)"; 
 	}
-	
-	public void Sort()
-	{
-		//mNumbers = quickSort(mNumbers);
-		mNumbers = quickSort(mNumbers);
-	}
-	
+
 	public int getPivotIndex(int left, int right)
 	{
 		Random rand = new Random();
-		//return left + rand.nextInt(right - left) + 1; 
-		//int pivot = rand.nextInt(right - left); 
-		int pivot = rand.nextInt(right);
-		//System.out.println(pivot);
-		return pivot;
+		return left + rand.nextInt(right - left + 1);
 	} 
 }

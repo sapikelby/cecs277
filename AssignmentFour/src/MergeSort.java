@@ -16,20 +16,6 @@ public class MergeSort extends MySort {
 			mNumbers.add(numbers.get(i));
 		} 
 		
-		/*
-		ArrayList<Integer> firstHalf = new ArrayList<Integer>(); 
-		for(int i=0; i<numbers.size()/2 - 1; i++)
-		{
-			firstHalf.add(numbers.get(i));
-		}
-		
-		ArrayList<Integer> secondHalf = new ArrayList<Integer>(); 
-		for(int i=0; i<numbers.size() - firstHalf.size(); i++)
-		{
-			int next = firstHalf.size() + i; 
-			secondHalf.add(numbers.get(next));
-		}
-		*/
 	}
 	
 	public String askName()
@@ -52,8 +38,8 @@ public class MergeSort extends MySort {
 		{
 			return;
 		}
-		ArrayList<Integer> firstHalf = new ArrayList<>();
-		ArrayList<Integer> secondHalf = new ArrayList<>();
+		ArrayList<Integer> firstHalf = new ArrayList<Integer>();
+		ArrayList<Integer> secondHalf = new ArrayList<Integer>();
 		int half = numbers.size() / 2;
 		for (int i = 0; i < half; i++)
 		{
