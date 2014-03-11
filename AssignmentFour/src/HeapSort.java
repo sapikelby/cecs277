@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Collections;
 
 public class HeapSort extends MySort{
 
 	public HeapSort(ArrayList<Integer> numbers)
 	{
-		//super();
+		mElapsedTime = 0;
+		mNumComparisons = 0;
 		mNumbers = new ArrayList<Integer>(numbers.size()); 
 		for(int i=0; i<numbers.size(); i++)
 		{
@@ -18,12 +20,13 @@ public class HeapSort extends MySort{
 		return "Heap Sort"; 
 	}
 	
-	public void Sort()
+	public void Sort() 
 	{
-		heapSort(mNumbers);
+		mNumbers = heapSort(mNumbers);
 	}
 	
-	public ArrayList<Integer> heapSort(ArrayList<Integer> unsortedList)
+
+public ArrayList<Integer> heapSort(ArrayList<Integer> unsortedList)
 	{
 		Date before = new Date();
 		int count = unsortedList.size();
@@ -89,4 +92,4 @@ public class HeapSort extends MySort{
 		unsortedList.set(swapOne, unsortedList.get(swapTwo));
 		unsortedList.set(swapTwo, holder);
 	}
-}
+}	

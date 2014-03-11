@@ -21,7 +21,18 @@ public abstract class MySort
 			
 				// need a try/catch
 			case QUICK_SORT:
+				//try 
+				//{
 				sorter = new QuickSort(numbers);
+				//}
+				try 
+				{
+					
+				}
+				catch(StackOverflowError e)
+				{
+					System.out.println("Quick Sort Ran Out of stack space");
+				}
 				break;
 				
 			case QUICK_SORT_RANDOMIZED:

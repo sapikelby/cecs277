@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class QuickSort extends MySort{
+public class QuickSort extends MySort
+{
 
 	public QuickSort(ArrayList<Integer> numbers)
 	{
@@ -18,15 +19,21 @@ public class QuickSort extends MySort{
 		return "Quick Sort"; 
 	}
 	
-	public void Sort()
+	public void Sort() 
 	{
+		Date before = new Date();
 		mNumbers = quickSort(mNumbers);
+		Date after = new Date(); 
+		mElapsedTime = after.getTime() - before.getTime();
 	}
 	
-	public ArrayList<Integer> quickSort(ArrayList<Integer> unsortedList)
+	public ArrayList<Integer> quickSort(ArrayList<Integer> unsortedList) throws StackOverFlowException
 	{
+		
 		ArrayList<Integer> sortedList = new ArrayList<Integer>();
 		//Date before = new Date();
+		try
+		{
 		if(unsortedList.size() <= 1)
 		{
 			return unsortedList;
@@ -56,9 +63,14 @@ public class QuickSort extends MySort{
 				left.add(unsortedList.get(i));
 			}
 			mNumComparisons++;
+			return sortedList;
 		}
 		//combine the lists
-		sortedList = concatinate(quickSort(left), pivotData, quickSort(right));
+		//sortedList = concatinate(quickSort(left), pivotData, quickSort(right));
+		}
+		catch(StackOverflowError e){
+			throw new StackOverFlowException(askName() + " ran out stack space");
+        }
 		//Date after = new Date();
 		//mElapsedTime = after.getTime() - before.getTime();
 		return sortedList;

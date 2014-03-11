@@ -16,12 +16,17 @@ public class QuickSortRandomized extends QuickSort {
 	
 	public void Sort()
 	{
-		//quickSort(mNumbers);
+		//mNumbers = quickSort(mNumbers);
+		quickSort(mNumbers);
 	}
 	
 	public int getPivotIndex(int left, int right)
 	{
 		Random rand = new Random();
-		return left + rand.nextInt(right - left) + 1; 
+		//return left + rand.nextInt(right - left) + 1; 
+		//int pivot = rand.nextInt(right - left); 
+		int pivot = rand.nextInt(right);
+		//System.out.println(pivot);
+		return pivot;
 	} 
 }
