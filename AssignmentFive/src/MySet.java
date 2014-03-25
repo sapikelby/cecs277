@@ -27,7 +27,7 @@ public class MySet<T extends Comparable <T>>
 
 	/**
 	 * adds item of type T to set
-	 * @param word is the item to be added to the set
+	 * @param item is the item to be added to the set
 	 */
 	public void add(T item)
 	{
@@ -46,23 +46,23 @@ public class MySet<T extends Comparable <T>>
 			list += newSet.get(i) + " ";
 		}
 		System.out.println(list + "\n");
-		//return list;/**
 		
 	}
+	
 	/**
 	 * Removes item from set
-	 * @param string is the item to be removed
+	 * @param item is the item to be removed
 	 * @throws ItemNotFoundException if item to be removed is not part of set
 	 */
-	public void remove(T string) throws ItemNotFoundException
+	public void remove(T item) throws ItemNotFoundException
 	{
-		if(newSet.contains(string))
+		if(newSet.contains(item))
 		{
-			newSet.remove(string);
+			newSet.remove(item);
 		}
 		else
 		{
-			throw new ItemNotFoundException(string.toString());
+			throw new ItemNotFoundException(item.toString());
 		}
 
 	}
@@ -70,7 +70,7 @@ public class MySet<T extends Comparable <T>>
 	/**
 	 * takes the union of two sets
 	 * @param evenInts other set needed to take the union of the two sets
-	 * @return set of representing the union between the two sets
+	 * @return set representing the union between the two sets
 	 */
 	public MySet<T> union(MySet<T> evenInts) 
 	{
@@ -151,13 +151,12 @@ public class MySet<T extends Comparable <T>>
 	}
 
 	/**
-	 * 
-	 * @param string is the item checked in the set
-	 * @return true if item is part of set
+	 * @param item is the item checked in the set
+	 * @return boolean(true) if item is part of set
 	 */
-	public boolean isPresent(T string) {
+	public boolean isPresent(T item) {
 
-		boolean present = newSet.contains(string) ? true : false;
+		boolean present = newSet.contains(item) ? true : false;
 		return present;
 	}
 

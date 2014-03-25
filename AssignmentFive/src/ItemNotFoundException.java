@@ -10,7 +10,7 @@ import java.lang.Exception;
 
 /**
  * Exceptions class for ItemNotFoundException exceptions
- * Extends the Exception's class
+ * Extends the Exception class
  */
 public class ItemNotFoundException extends Exception
 {	
