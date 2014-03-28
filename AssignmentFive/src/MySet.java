@@ -37,13 +37,11 @@ public class MySet<T extends Comparable <T>>
 		}
 		else 
 		{
-			for(int i = 0; i<newSet.size(); i++)
+			if(!newSet.contains(item))
 			{
-				if(!newSet.contains(item))
-				{
-					newSet.add(item);
-				}
+				newSet.add(item);
 			}
+			
 		}
 	}
 
