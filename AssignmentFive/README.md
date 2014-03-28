@@ -1,5 +1,3 @@
-Desired output 
-
 
 MySet Even numbers contains
 0 2 4 6 8 10 12 14 16 18 
@@ -30,7 +28,7 @@ MySet Union(Even numbers,Even numbers) contains
 0 2 4 6 8 10 12 14 16 18 
 
 MySet Even words contains
-Algol FORTRAN RPG APL SNOBOL Pascal C FORTRAN JavaScript Forth 
+Algol FORTRAN RPG APL SNOBOL Pascal C JavaScript Forth 
 
 MySet Odd words contains
 BASIC COBOL Lisp Simula BCPL B C++ Java Python Haskell 
@@ -55,4 +53,4 @@ MySet Difference(Even words,Even words) contains
 
 
 MySet Union(Even words,Even words) contains
-Algol FORTRAN RPG APL SNOBOL Pascal C FORTRAN JavaScript Forth 
+Algol FORTRAN RPG APL SNOBOL Pascal C JavaScript Forth 
