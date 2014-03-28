@@ -26,17 +26,30 @@ public class MySet<T extends Comparable <T>>
 	}
 
 	/**
-	 * adds item of type T to set
+	 * adds item of type T to set if item is not in set
 	 * @param item is the item to be added to the set
 	 */
 	public void add(T item)
 	{
-		newSet.add(item);
+		if(newSet.isEmpty())
+		{
+			newSet.add(item);
+		}
+		else 
+		{
+			for(int i = 0; i<newSet.size(); i++)
+			{
+				if(!newSet.contains(item))
+				{
+					newSet.add(item);
+				}
+			}
+		}
 	}
 
 	/**
 	 * Acts like a ToString for the set
-	 * prints set
+	 * prints ToString representation of set
 	 */
 	public void list()
 	{
@@ -76,19 +89,17 @@ public class MySet<T extends Comparable <T>>
 	{
 		String setName = "Union(" + getName() + "," + evenInts.getName() + ")";
 		MySet<T> temp = new MySet<T>(setName);
-
-		temp.getList().addAll(this.newSet);
-
-		int iterator = 0;
-		while(!temp.getList().contains(evenInts.getList()) && iterator < evenInts.getList().size())
+		temp.getList().addAll(newSet);
+		
+		for(int ii=0; ii<evenInts.getList().size(); ii++)
 		{
-			if(!temp.getList().contains(evenInts.getList().get(iterator)))
+			T item = evenInts.getList().get(ii);
+			if(!temp.getList().contains(evenInts.getList().get(ii)))
 			{
-				temp.getList().add(evenInts.getList().get(iterator));
+				temp.add(item);
 			}
-				
-			iterator++;
 		}
+		
 		return temp;
 	}
 
@@ -112,14 +123,14 @@ public class MySet<T extends Comparable <T>>
 		MySet<T> temp = new MySet<T>(setName);
 
 		temp.getList().addAll(this.newSet);
-
+		
 		int iterator = 0;
 		while(iterator < subset.getList().size())
 		{
 			T itemRemove = subset.getList().get(iterator);
-			if(temp.getList().contains(subset.getList().get(iterator)))
+			if(temp.getList().contains(itemRemove))
 			{
-				temp.getList().remove(itemRemove); 
+				 temp.getList().remove(itemRemove); 
 			}
 
 			iterator++;
@@ -138,18 +149,18 @@ public class MySet<T extends Comparable <T>>
 		MySet<T> temp = new MySet<T>("temp");
 
 		temp.getList().addAll(this.newSet);
-
+		
 		MySet<T> intersect = new MySet<T>(setName);
 
 		int iterator = 0;
 		while(temp.getList().contains(evenInts.getList()) && iterator < evenInts.getList().size())
 		{
-			intersect.getList().remove(evenInts.getList().get(iterator));
+			intersect.getList().add(evenInts.getList().get(iterator));
 			iterator++;
 		}
 		return intersect;
 	}
-
+	
 	/**
 	 * @param item is the item checked in the set
 	 * @return boolean(true) if item is part of set
@@ -175,5 +186,6 @@ public class MySet<T extends Comparable <T>>
 	 */
 	private String listName; 
 	private ArrayList<T> newSet;
+	//private MySet<T> temp; 
 
 }
