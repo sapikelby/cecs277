@@ -7,9 +7,7 @@ import java.util.TreeMap;
 
 public class ExpressionStore
 {
-	// store (expName, expression) in hashMap
-	// store maps in linkedList
-	// treeMap (string key, array as the value)
+	// treeMap (string key, expression as string)
 	public ExpressionStore()
 	{
 		_List = new TreeMap<String, String>();
@@ -17,10 +15,7 @@ public class ExpressionStore
 	
 	public void store(String expName, String expression)
 	{
-		//_List = new TreeMap<String, String>();
-		//_Name = new LinkedList<String>();
 ;		_List.put(expName, expression);
-		//_Name.add(expName);
 	}
 	
 	public void remove(String remName)
@@ -28,6 +23,7 @@ public class ExpressionStore
 		if(_List.containsKey(remName))
 		{
 			_List.remove(remName);
+			
 		}
 	}
 
@@ -39,7 +35,6 @@ public class ExpressionStore
 		return _List.firstKey();
 	}
 
-	//Still working on this part
 	public String getNext(String input)
 	{
 		return _List.higherKey(input);
@@ -62,7 +57,6 @@ public class ExpressionStore
 		return new LinkedList<String>(Arrays.asList(expression.split(",")));
 	}
 	
-	//Still working on this part
 	public int getValue(String name)
 	{
 		
@@ -127,17 +121,9 @@ public class ExpressionStore
 			
 		}
 		return st.pop();
-		/*
-		LinkedList<String> newLinkedList = split(name);
 		
-		for(int i=0; i<newLinkedList.size(); i++)
-		{
-			System.out.println(newLinkedList.get(i));
-		}
-		*/
 		
 	}
 	
 	private TreeMap<String, String> _List;
-	//private LinkedList<String> _Name;
 }
